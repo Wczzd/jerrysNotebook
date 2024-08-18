@@ -1,0 +1,25 @@
+{% extends 'jerrysNotebook/base.html' %}
+
+{% block page_header %}
+    <h1>{{ topic.text }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+    <h2>主题：{{ topic.text }}</h2>
+
+    <p>内容：</p>
+    <p>
+        <a href="{% url 'jerrysNotebook:newEntry' topic.id %}">添加新内容</a>
+    </p>
+    {% for entry in entries %}
+        <div class="card mb-3">
+            <h4 class="card-header">
+                {{ entry.dataAdded|date:"M d, Y H:i" }}
+                <small><a href="{% url 'jerrysNotebook:editEntry' entry.id %}">编辑</a></small>
+            </h4>
+            <div class="card-body">{{ entry.text|linebreaks }}</div>
+        </div>
+        {% empty %}
+            <p>还没有文章，赶快创作吧！</p>
+        {% endfor %}
+{% endblock content %}

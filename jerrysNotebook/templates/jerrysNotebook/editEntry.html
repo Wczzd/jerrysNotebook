@@ -1,0 +1,12 @@
+{% extends 'jerrysNotebook/base.html' %}
+
+{% block content %}
+    <h2><a href="{% url 'jerrysNotebook:topic' topic.id %}">B{{ topic}}</a></h2>
+    <h2>编辑</h2>
+
+    <form action="{% url 'jerrysNotebook:editEntry' entry.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button name="submit">提交</button>
+    </form>
+{% endblock content %}

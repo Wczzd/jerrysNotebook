@@ -1,0 +1,11 @@
+{% extends 'jerrysNotebook/base.html' %}
+
+{% block content %}
+    <h2>创建新主题</h2>
+
+    <form action="{% url 'jerrysNotebook:newTopic' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button name="submit">添加主题</button>
+    </form>
+{% endblock content %}

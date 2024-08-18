@@ -1,0 +1,11 @@
+{% extends 'jerrysNotebook/base.html' %}
+
+{% block page_header %}
+    <div class="p-3 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-4">
+            <h1 class="display-3">欢迎使用JerrysNotebook，开始笔记之旅</h1>
+            <p class="lead">记录你的生活，分享你的感悟；记录你的学习，分享你的知识！JerrysNotebook支持显示记录内容的时间，同一标题下还可写多篇文章，对于写作有很大便利</p>
+            <a class="btn btn-primary btn-lg mt-1" href="{% url 'accounts:register' %}">注册账号</a>
+        </div>
+    </div>
+{% endblock page_header %}
